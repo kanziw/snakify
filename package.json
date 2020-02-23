@@ -1,6 +1,6 @@
 {
   "name": "snakify",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Convert keys to snake case",
   "author": "kanziw <kanziwoong@gmail.com>",
   "repository": "git@github.com:kanziw/snakify.git",
