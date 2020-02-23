@@ -5,6 +5,9 @@
   "author": "kanziw <kanziwoong@gmail.com>",
   "repository": "git@github.com:kanziw/snakify.git",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "scripts": {
     "test": "jest"
   },
