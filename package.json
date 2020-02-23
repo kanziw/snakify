@@ -1,0 +1,15 @@
+{
+  "name": "snakify",
+  "version": "0.0.1",
+  "description": "Convert keys to snake case",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "snakify",
+    "convert case"
+  ],
+  "author": "kanziw <kanziwoong@gmail.com>",
+  "license": "MIT"
+}
