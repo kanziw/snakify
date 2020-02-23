@@ -2,8 +2,10 @@ name: Publish
 
 on:
   push:
-    tags:
-      - v*
+    branches:
+      - master
+  release:
+    types: [published]
 
 jobs:
   publish-npm:
