@@ -2,6 +2,8 @@
   "name": "snakify",
   "version": "0.0.1",
   "description": "Convert keys to snake case",
+  "author": "kanziw <kanziwoong@gmail.com>",
+  "repository": "git@github.com:kanziw/snakify.git",
   "main": "index.js",
   "scripts": {
     "test": "jest"
@@ -10,7 +12,6 @@
     "snakify",
     "convert case"
   ],
-  "author": "kanziw <kanziwoong@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "lodash.snakecase": "^4.1.1"
