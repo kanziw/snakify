@@ -1,16 +1,19 @@
 const snakeCase = require('lodash.snakecase')
 
-const isString = value => typeof value === 'string'
-const isNumber = value => typeof value === 'number' && !isNaN(value)
 const isArray = value => Array.isArray(value)
+const isNil = value => value === undefined || value === null
+const isString = value => typeof value === 'string'
+const isNumber = value => typeof value === 'number' // We allow NaN
 const isBoolean = value => typeof value === 'boolean'
+
+const anyPass = (value, ...predictors) => predictors.some(predictor => predictor(value))
 
 const snakify = obj => {
   if (isArray(obj)) {
     return obj.map(item => snakify(item))
   }
 
-  if (!obj || isString(obj) || isNumber(obj) || isBoolean(obj)) {
+  if (anyPass(obj, isNil, isString, isNumber, isBoolean)) {
     return obj
   }
 

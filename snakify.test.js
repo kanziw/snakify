@@ -15,8 +15,8 @@ test('deep depth', () => {
 })
 
 test('various types', () => {
-  const given = { numVal: 1, strVal: 'camelCase', boolVal: true }
-  const expected = { num_val: 1, str_val: 'camelCase', bool_val: true }
+  const given = { numVal: 1, strVal: 'camelCase', boolVal: true, nullValue: null, undefinedValue: undefined }
+  const expected = { num_val: 1, str_val: 'camelCase', bool_val: true, null_value: null, undefined_value: undefined }
 
   expect(snakify(given)).toEqual(expected)
 })
