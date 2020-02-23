@@ -11,5 +11,8 @@
     "convert case"
   ],
   "author": "kanziw <kanziwoong@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash.snakecase": "^4.1.1"
+  }
 }
