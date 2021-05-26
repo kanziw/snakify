@@ -39,3 +39,22 @@ test('array case', () => {
 
   expect(snakify(given)).toEqual(expected)
 })
+
+test('ignoreNumber option case', () => {
+  const given = {
+    txL7Size: [ 1, 'camelCaseArrVal', true ],
+    txL4Size: [
+      { numVal: 1, strVal: 'camelCase', boolVal: true },
+      { numVal: 1, strVal: 'camelCase', boolVal: true },
+    ],
+  }
+  const expected = {
+    tx_l7_size: [ 1, 'camelCaseArrVal', true ],
+    tx_l4_size: [
+      { num_val: 1, str_val: 'camelCase', bool_val: true },
+      { num_val: 1, str_val: 'camelCase', bool_val: true },
+    ],
+  }
+
+  expect(snakify(given, { ignoreNumber: true })).toEqual(expected)
+})

@@ -8,7 +8,7 @@ const isBoolean = value => typeof value === 'boolean'
 
 const anyPass = (value, ...predictors) => predictors.some(predictor => predictor(value))
 
-const snakify = obj => {
+const snakify = (obj, options) => {
   if (isArray(obj)) {
     return obj.map(item => snakify(item))
   }
@@ -20,9 +20,35 @@ const snakify = obj => {
   return Object
     .entries(obj)
     .reduceRight(
-      (acc, [ key, value ]) => Object.assign({ [ snakeCase(key) ]: snakify(value) }, acc),
+      (acc, [ key, value ]) => 
+        Object.assign(
+          { [ processOptions(snakeCase(key), options) ]: snakify(value) }, 
+          acc,
+        ),
       {},
     )
+}
+
+const optionProcessor = {
+  ignoreNumber,
+}
+
+function processOptions(key, options) {
+  if (!options) {
+    return key
+  }
+
+  let result = key
+
+  Object.keys(options).forEach(name => {
+    result = optionProcessor[name](key)
+  })
+
+  return result
+}
+
+function ignoreNumber(key) {
+  return key.replace(/(_)([0-9])+/g, `$2`)
 }
 
 module.exports = snakify
