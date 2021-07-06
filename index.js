@@ -20,7 +20,7 @@ const snakify = obj => {
   return Object
     .entries(obj)
     .reduceRight(
-      (acc, [ key, value ]) => Object.assign({ [ snakeCase(key) ]: snakify(value) }, acc),
+      (acc, [ key, value ]) => Object.assign({ [ snakeCase(key) ]: value }, acc),
       {},
     )
 }
